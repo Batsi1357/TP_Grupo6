@@ -1,5 +1,6 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,5 +17,11 @@ public class Clase
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idClase;
     private String ClasePersonalizada;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "unidad_id")
+    private Unidad unidadid;
+
 
 }
