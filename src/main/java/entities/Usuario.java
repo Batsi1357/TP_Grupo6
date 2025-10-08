@@ -1,9 +1,11 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name="usuarios")
@@ -18,5 +20,10 @@ public class Usuario
     private int idUsuario;
     private String Username;
     private String Password;
+    @JsonIgnore
+    @ToString.Exclude
+    @ManyToOne
+    @JoinColumn(name="rol_id")
+    private Rol rol;
 
 }
