@@ -20,6 +20,8 @@ public class Usuario
     private int idUsuario;
     private String Username;
     private String Password;
+    private String activo;
+
     @JsonIgnore
     @ToString.Exclude
     @ManyToOne
