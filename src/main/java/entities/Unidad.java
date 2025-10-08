@@ -10,7 +10,7 @@ import lombok.ToString;
 import java.util.List;
 
 @Entity
-@Table(name="Unidades")
+@Table(name="unidades")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
