@@ -23,5 +23,4 @@ public class Clase
     @JoinColumn(name = "unidad_id")
     private Unidad unidadid;
 
-
 }
