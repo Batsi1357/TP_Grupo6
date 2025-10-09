@@ -1,9 +1,13 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.util.List;
 
 @Entity
 @Table(name="subscripciones")
@@ -18,5 +22,8 @@ public class Subscripcion
     private String Nombre;
     private String Descripcion;
     private Float Precio;
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "subscripcionid", fetch = FetchType.EAGER )
+    @ToString.Exclude
+    private List<OrdenSubscripcion> ordenSubscripcion;
 }

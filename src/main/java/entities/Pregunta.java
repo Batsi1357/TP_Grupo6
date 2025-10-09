@@ -1,9 +1,11 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name="preguntas")
@@ -18,5 +20,9 @@ public class Pregunta
     private String Enunciado;
     private String Tipo;
     private Float Puntaje;
+    @JsonIgnore
+    @ToString.Exclude
+    @OneToOne(mappedBy = "pregunta", fetch = FetchType.LAZY)
+    private Respuesta respuesta;
 
 }

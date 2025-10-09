@@ -1,11 +1,15 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
+import java.util.List;
+
 @Entity
 @Table(name="evaluaciones")
 @Data
@@ -20,5 +24,8 @@ public class Evaluacion
     private String Descripcion;
     private LocalDate Fecha;
     private int Duracion;
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "evaluacion", fetch = FetchType.EAGER )
+    @ToString.Exclude
+    private List<Pregunta> preguntas;
 }

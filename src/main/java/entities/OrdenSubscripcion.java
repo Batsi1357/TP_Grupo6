@@ -1,9 +1,11 @@
 package entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDate;
 @Entity
@@ -19,5 +21,16 @@ public class OrdenSubscripcion
     private String Estado;
     private LocalDate FechaInicio;
     private LocalDate FechaFin;
+    @JsonIgnore
+    @ToString.Exclude
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "cliente_id", unique = true, nullable = false)
+    private Cliente cliente;
 
+    @JsonIgnore
+    @ToString.Exclude
+    @ManyToOne
+    @JoinColumn(name="subscripcion_id")
+    private Subscripcion subscripcion;
+    
 }

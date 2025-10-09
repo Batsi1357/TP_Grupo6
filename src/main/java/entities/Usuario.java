@@ -28,4 +28,8 @@ public class Usuario
     @JoinColumn(name="rol_id")
     private Rol rol;
 
+    @JsonIgnore
+    @ToString.Exclude
+    @OneToOne(mappedBy = "usuario", fetch = FetchType.LAZY)
+    private Cliente cliente;
 }
