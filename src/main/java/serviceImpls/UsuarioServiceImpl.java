@@ -17,31 +17,28 @@ public class UsuarioServiceImpl implements UsuarioService
 
     @Override
     public List<Usuario> list() {
-        return List.of();
+        return usuarioRepository.findAll();
     }
 
     @Override
     public void insert(Usuario usuario) {
-
+        usuarioRepository.save(usuario);
     }
 
     @Override
     public Usuario listId(int id) {
-        return null;
+        return usuarioRepository.findById(id).orElse(null);
     }
 
     @Override
     public void delete(int id) {
-
+        usuarioRepository.deleteById(id);
     }
 
     @Override
     public void update(Usuario usuario) {
-
+        usuarioRepository.save(usuario);
     }
 
-    @Override
-    public Optional<Usuario> findByEmail(String email) {
-        return Optional.empty();
-    }
+
 }

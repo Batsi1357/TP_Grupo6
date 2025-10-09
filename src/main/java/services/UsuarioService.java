@@ -12,5 +12,5 @@ public interface UsuarioService
     public Usuario listId(int id);
     public void delete(int id);
     public void update(Usuario usuario);
-    public Optional<Usuario> findByEmail(String email);
+
 }
