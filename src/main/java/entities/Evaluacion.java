@@ -22,7 +22,7 @@ public class Evaluacion
     private int idEvaluacion;
     private String Titulo;
     private String Descripcion;
-    private LocalDate Fecha;
+    private LocalDate FechaInicio;
     private int Duracion;
     @JsonIgnore
     @OneToMany(mappedBy = "evaluacion", fetch = FetchType.EAGER )
