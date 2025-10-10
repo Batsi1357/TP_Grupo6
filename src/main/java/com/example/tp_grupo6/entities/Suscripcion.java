@@ -21,7 +21,8 @@ public class Suscripcion {
     private Double precio;
     private Integer duracion; // en días o meses
 
-    @OneToMany(mappedBy = "suscripcion", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<OrdenSubscripcion> ordenes;
+     @JsonIgnore
+    @OneToMany(mappedBy = "subscripcionid", fetch = FetchType.EAGER )
+    @ToString.Exclude
+    private List<OrdenSubscripcion> ordenSubscripcion;
 }
