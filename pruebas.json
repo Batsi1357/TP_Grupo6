@@ -1,0 +1,119 @@
+{
+  "info": {
+    "name": "TP_Grupo6 Suscripcion y OrdenSubscripcion (Completo)",
+    "_postman_id": "a01e2d7e-fc92-4d3b-a8f4-8a7bc0c45a21",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "=== SUSCRIPCIONES ===",
+      "item": [
+        {
+          "name": "Listar todas las suscripciones",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/suscripciones"
+          }
+        },
+        {
+          "name": "Obtener suscripción por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/suscripciones/1"
+          }
+        },
+        {
+          "name": "Crear nueva suscripción",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/suscripciones",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Premium\",\n  \"precio\": 120.50,\n  \"duracion\": 12\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        },
+        {
+          "name": "Actualizar suscripción existente",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/suscripciones/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Premium Plus\",\n  \"precio\": 150.00,\n  \"duracion\": 24\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        },
+        {
+          "name": "Eliminar suscripción",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/suscripciones/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "=== ORDENES DE SUSCRIPCIÓN ===",
+      "item": [
+        {
+          "name": "Listar todas las órdenes",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/ordenes"
+          }
+        },
+        {
+          "name": "Obtener orden por ID",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/ordenes/1"
+          }
+        },
+        {
+          "name": "Listar órdenes por idSuscripcion",
+          "request": {
+            "method": "GET",
+            "url": "{{baseUrl}}/api/ordenes/suscripcion/1"
+          }
+        },
+        {
+          "name": "Crear nueva orden de suscripción",
+          "request": {
+            "method": "POST",
+            "url": "{{baseUrl}}/api/ordenes",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"Activa\",\n  \"fechaInicio\": \"2025-10-01\",\n  \"fechaFin\": \"2026-10-01\",\n  \"suscripcion\": {\"idSuscripcion\": 1}\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        },
+        {
+          "name": "Actualizar orden existente",
+          "request": {
+            "method": "PUT",
+            "url": "{{baseUrl}}/api/ordenes/1",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"estado\": \"Finalizada\",\n  \"fechaInicio\": \"2025-10-01\",\n  \"fechaFin\": \"2026-03-01\",\n  \"suscripcion\": {\"idSuscripcion\": 1}\n}",
+              "options": { "raw": { "language": "json" } }
+            }
+          }
+        },
+        {
+          "name": "Eliminar orden de suscripción",
+          "request": {
+            "method": "DELETE",
+            "url": "{{baseUrl}}/api/ordenes/1"
+          }
+        }
+      ]
+    }
+  ]
+}
