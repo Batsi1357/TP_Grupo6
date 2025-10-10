@@ -1,36 +1,25 @@
-package entities;
+package com.example.tp_grupo6.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDate;
+
 @Entity
-@Table(name="ordenSubscripciones")
+@Table(name = "orden_subscripcion")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrdenSubscripcion
-{
+public class OrdenSubscripcion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int idOrdenSubscripcion;
-    private String Estado;
-    private LocalDate FechaInicio;
-    private LocalDate FechaFin;
-    @JsonIgnore
-    @ToString.Exclude
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "cliente_id", unique = true, nullable = false)
-    private Cliente cliente;
+    private Integer idOrdenSubscripcion;
 
-    @JsonIgnore
-    @ToString.Exclude
+    private String estado;
+    private LocalDate fechaInicio;
+    private LocalDate fechaFin;
+
     @ManyToOne
-    @JoinColumn(name="subscripcion_id")
-    private Subscripcion subscripcion;
-    
+    @JoinColumn(name = "id_suscripcion")
+    private Suscripcion suscripcion;
 }
