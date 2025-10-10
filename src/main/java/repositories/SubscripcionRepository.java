@@ -1,7 +1,7 @@
-package com.example.tp_grupo6.repositories;
+package repositories;
 
-import com.example.tp_grupo6.entities.Suscripcion;
+import entities.Subscripcion;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface SubscripcionRepository extends JpaRepository<Suscripcion,Integer> {
+public interface SubscripcionRepository extends JpaRepository<Subscripcion,Integer> {
 }
