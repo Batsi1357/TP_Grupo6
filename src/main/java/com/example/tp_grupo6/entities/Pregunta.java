@@ -17,9 +17,15 @@ public class Pregunta
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idPregunta;
+
     private String Enunciado;
     private String Tipo;
     private Float Puntaje;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "evaluacion_id", nullable = false)
+    @ToString.Exclude
+    @JsonIgnore
+    private Evaluacion evaluacion;
     @JsonIgnore
     @ToString.Exclude
     @OneToOne(mappedBy = "pregunta", fetch = FetchType.LAZY)

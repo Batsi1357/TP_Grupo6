@@ -2,12 +2,12 @@ package com.example.tp_grupo6.controllers;
 
 import com.example.tp_grupo6.dtos.RolDto;
 import com.example.tp_grupo6.entities.Rol;
+import com.example.tp_grupo6.services.RolService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.tp_grupo6.services.RolService;
 
 import java.util.List;
 import java.util.stream.Collectors;

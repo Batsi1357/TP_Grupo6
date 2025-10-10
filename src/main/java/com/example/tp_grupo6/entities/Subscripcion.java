@@ -22,8 +22,13 @@ public class Subscripcion
     private String Nombre;
     private String Descripcion;
     private Float Precio;
-    @JsonIgnore
-    @OneToMany(mappedBy = "subscripcionid", fetch = FetchType.EAGER )
+    @OneToMany(
+            mappedBy = "subscripcion",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
     @ToString.Exclude
-    private List<OrdenSubscripcion> ordenSubscripcion;
+    @JsonIgnore
+    private List<OrdenSubscripcion> ordenes;
 }

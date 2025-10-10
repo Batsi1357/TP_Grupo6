@@ -2,11 +2,11 @@ package com.example.tp_grupo6.controllers;
 
 import com.example.tp_grupo6.dtos.ClaseDto;
 import com.example.tp_grupo6.entities.Clase;
+import com.example.tp_grupo6.services.ClaseService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.tp_grupo6.services.ClaseService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -55,7 +55,7 @@ public class ClaseController {
         return new ResponseEntity<>(request, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable("id") Integer id) {
         Clase clase = claseService.listId(id);
         if (clase == null) {

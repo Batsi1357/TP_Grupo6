@@ -12,6 +12,4 @@ public interface SubscripcionService
     public void delete(int id);
     public void update(Subscripcion suscripcion);
     public List<String[]> quantitytypebySuscripciones();
-
-
 }

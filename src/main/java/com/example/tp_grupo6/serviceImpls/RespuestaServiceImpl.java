@@ -1,10 +1,10 @@
 package com.example.tp_grupo6.serviceImpls;
 
 import com.example.tp_grupo6.entities.Respuesta;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.example.tp_grupo6.repositories.RespuestaRepository;
 import com.example.tp_grupo6.services.RespuestaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service

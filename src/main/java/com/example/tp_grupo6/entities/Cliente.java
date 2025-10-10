@@ -22,7 +22,7 @@ public class Cliente
     private String Direccion;
     private String Celular;
     private String email;
-    private int Edad;
+    private int edad;
 
     @JsonIgnore
     @ToString.Exclude

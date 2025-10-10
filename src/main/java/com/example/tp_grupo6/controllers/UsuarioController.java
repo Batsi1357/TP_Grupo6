@@ -2,18 +2,18 @@ package com.example.tp_grupo6.controllers;
 
 import com.example.tp_grupo6.dtos.UsuarioDto;
 import com.example.tp_grupo6.entities.Usuario;
+import com.example.tp_grupo6.services.UsuarioService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.tp_grupo6.services.UsuarioService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/Clase")
+@RequestMapping("/Usuario")
 @CrossOrigin("*")
 public class UsuarioController {
     @Autowired
@@ -73,3 +73,4 @@ public class UsuarioController {
         return ResponseEntity.noContent().build();
     }
 }
+

@@ -2,12 +2,12 @@ package com.example.tp_grupo6.controllers;
 
 import com.example.tp_grupo6.dtos.ClienteDto;
 import com.example.tp_grupo6.entities.Cliente;
+import com.example.tp_grupo6.services.ClienteService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.example.tp_grupo6.services.ClienteService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -63,7 +63,7 @@ public class ClienteController {
     }
 
     // ----------- DELETE -----------
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable("id") Integer id) {
         Cliente cliente = clienteService.listId(id);
         if (cliente == null) {
