@@ -19,7 +19,7 @@ public class Rol
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idRol;
-    private String Tipo_Rol;
+    private String TipoRol;
     @JsonIgnore
     @ToString.Exclude
     @OneToMany(mappedBy = "rol", fetch = FetchType.EAGER)
