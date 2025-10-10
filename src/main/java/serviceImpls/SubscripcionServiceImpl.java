@@ -1,36 +1,47 @@
-package com.example.tp_grupo6.serviceImpls;
+package serviceImpls;
 
-import com.example.tp_grupo6.entities.Suscripcion;
-import lombok.RequiredArgsConstructor;
+import entities.Subscripcion;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.tp_grupo6.services.SuscripcionService;
-import com.example.tp_grupo6.repositories.SubscripcionRepository;
+import repositories.SubscripcionRepository;
+import services.SubscripcionService;
+import services.UnidadService;
+
 import java.util.List;
-import java.util.Optional;
-
 @Service
-@RequiredArgsConstructor
-public class SubscripcionServiceImpl implements SuscripcionService {
-
-    private final SubscripcionRepository  repo;
-
+public class SubscripcionServiceImpl implements SubscripcionService
+{
+    @Autowired
+    private SubscripcionRepository subscripcionRepository;
     @Override
-    public List<Suscripcion> listar() {
-        return repo.findAll();
+    public List<Subscripcion> list()
+    {
+        return subscripcionRepository.findAll();
     }
-
     @Override
-    public Optional<Suscripcion> obtenerPorId(Integer id) {
-        return repo.findById(id);
+    public void insert(Subscripcion suscripcion)
+    {
+        subscripcionRepository.save(suscripcion);
     }
-
     @Override
-    public Suscripcion guardar(Suscripcion suscripcion) {
-        return repo.save(suscripcion);
+    public Subscripcion buscar(int id)
+    {
+        return subscripcionRepository.findById(id).orElse(null);
     }
-
     @Override
-    public void eliminar(Integer id) {
-        repo.deleteById(id);
+    public void delete(int id)
+    {
+        subscripcionRepository.deleteById(id);
+    }
+    @Override
+    public void update(Subscripcion suscripcion)
+    {
+        subscripcionRepository.save(suscripcion);
+    }
+    @Override
+    public List<String[]> quantitytypebySuscripciones()
+    {
+
+        return List.of();
     }
 }

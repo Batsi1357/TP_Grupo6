@@ -1,44 +1,39 @@
-package com.example.tp_grupo6.serviceImpls;
+package serviceImpls;
 
-import com.example.tp_grupo6.dtos.SuscripcionCantidadDTO;
-import com.example.tp_grupo6.entities.OrdenSubscripcion;
-import lombok.RequiredArgsConstructor;
+import entities.OrdenSubscripcion;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.tp_grupo6.repositories.OrdenSubscripcionRepository;
-import com.example.tp_grupo6.services.OrdenSubscripcionService;
+import repositories.OrdenSubscripcionRepository;
+import repositories.SubscripcionRepository;
+import services.OrdenSubscripcionService;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Service
-@RequiredArgsConstructor
-public class OrdenSubscripcionServiceImpl implements OrdenSubscripcionService {
-    private final OrdenSubscripcionRepository repo;
+public class OrdenSubscripcionServiceImpl implements OrdenSubscripcionService
+{
+    @Autowired
+    private OrdenSubscripcionRepository ordenSubscripcionRepository;
 
     @Override
-    public List<OrdenSubscripcion> listar() {
-        return repo.findAll();
+    public List<OrdenSubscripcion> list() {
+        return List.of();
     }
 
     @Override
-    public Optional<OrdenSubscripcion> obtenerPorId(Integer id) {
-        return repo.findById(id);
+    public void insert(OrdenSubscripcion ordenSubscripcion) {
+
     }
 
     @Override
-    public OrdenSubscripcion guardar(OrdenSubscripcion orden) {
-        return repo.save(orden);
+    public OrdenSubscripcion buscar(int id) {
+        return null;
     }
 
     @Override
-    public void eliminar(Integer id) {
-        repo.deleteById(id);
-    }
+    public void delete(int id) {
 
-    @Override
-    public List<OrdenSubscripcion> listarPorSuscripcion(Integer idSuscripcion) {
-        return repo.findBySuscripcionId(idSuscripcion);
     }
 
     @Override
@@ -54,8 +49,5 @@ public class OrdenSubscripcionServiceImpl implements OrdenSubscripcionService {
     @Override
     public List<OrdenSubscripcion> listarPorCliente(int idCliente) {
         return List.of();
-    }
-    public List<SuscripcionCantidadDTO> quantitytypebySuscripciones() {
-        return repo.quantitytypebySuscripciones();
     }
 }
