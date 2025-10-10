@@ -1,10 +1,10 @@
 package com.example.tp_grupo6.serviceImpls;
 
 import com.example.tp_grupo6.entities.Evaluacion;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.example.tp_grupo6.repositories.EvaluacionRepository;
 import com.example.tp_grupo6.services.EvaluacionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -17,7 +17,8 @@ public class EvaluacionServiceImpl implements EvaluacionService
     public List<Evaluacion> list() {
         return evaluacionRepository.findAll();
     }
-
+    @Override
+    public void update(Evaluacion evaluacion) {evaluacionRepository.save(evaluacion);}
     @Override
     public void insert(Evaluacion evaluacion) {
         evaluacionRepository.save(evaluacion);

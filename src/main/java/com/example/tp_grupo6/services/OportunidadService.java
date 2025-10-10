@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface OportunidadService
 {
+    void update(Oportunidad oportunidad);
     List<Oportunidad> list();
     void insert(Oportunidad oportunidad);
     List<Oportunidad> buscarPorOportunidad(String Intento);

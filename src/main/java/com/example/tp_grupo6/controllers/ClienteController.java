@@ -63,7 +63,7 @@ public class ClienteController {
     }
 
     // ----------- DELETE -----------
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable("id") Integer id) {
         Cliente cliente = clienteService.listId(id);
         if (cliente == null) {

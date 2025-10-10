@@ -55,7 +55,7 @@ public class ClaseController {
         return new ResponseEntity<>(request, HttpStatus.OK);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/eliminar/{id}")
     public ResponseEntity<?> eliminar(@PathVariable("id") Integer id) {
         Clase clase = claseService.listId(id);
         if (clase == null) {

@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface EvaluacionService
 {
+    void update(Evaluacion evaluacion);
     List<Evaluacion> list();
     void insert(Evaluacion evaluacion);
     List<Evaluacion> buscarPorTitulo(String Titulo);
