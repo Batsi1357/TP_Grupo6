@@ -24,7 +24,6 @@ public class Unidad
     private int Nivel;
     private String Categoria;
     private int Duracion;
-    private String Estado;
 
     @JsonIgnore
     @OneToMany(mappedBy = "unidadid", fetch = FetchType.EAGER )

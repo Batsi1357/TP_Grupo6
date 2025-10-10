@@ -11,8 +11,6 @@ public interface UnidadService
     Optional<UnidadDto> findById(Integer id);
     List<UnidadDto> findByCategoria(String categoria);
     List<UnidadDto> findByNivel(String nivel);
-    List<UnidadDto> findByEstado(Boolean estado);
-    UnidadDto save(UnidadDto unidadDto);
     UnidadDto update(Integer id, UnidadDto unidadDto);
     void deleteById(Integer id);
 }
