@@ -1,6 +1,7 @@
 package serviceImpls;
 
 import dtos.UnidadDto;
+import entities.Unidad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repositories.UnidadRepository;
@@ -15,33 +16,44 @@ public class UnidadServiceImpl implements UnidadService
     @Autowired
     private UnidadRepository unidadRepository;
 
+
     @Override
-    public List<UnidadDto> findAll() {
+    public List<Unidad> list() {
+        return unidadRepository.findAll();
+    }
+
+    @Override
+    public void insert(Unidad unidad) {
+        unidadRepository.save(unidad);
+    }
+
+    @Override
+    public Unidad listId(int id) {
+        return unidadRepository.findById(id).orElse(null);
+    }
+
+    @Override
+    public Optional<Unidad> findById(Integer id) {
+        return unidadRepository.findById(id);
+    }
+
+    @Override
+    public List<Unidad> findByCategoria(String categoria) {
         return List.of();
     }
 
     @Override
-    public Optional<UnidadDto> findById(Integer id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public List<UnidadDto> findByCategoria(String categoria) {
+    public List<Unidad> findByNivel(String nivel) {
         return List.of();
     }
 
     @Override
-    public List<UnidadDto> findByNivel(String nivel) {
-        return List.of();
+    public void update(Unidad unidad) {
+        unidadRepository.save(unidad);
     }
 
     @Override
-    public UnidadDto update(Integer id, UnidadDto unidadDto) {
-        return null;
-    }
-
-    @Override
-    public void deleteById(Integer id) {
-
+    public void delete(int id) {
+        unidadRepository.deleteById(id);
     }
 }
