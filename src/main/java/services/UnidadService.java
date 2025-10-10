@@ -5,8 +5,8 @@ import dtos.UnidadDto;
 import java.util.List;
 import java.util.Optional;
 
-public interface UnidadService {
-
+public interface UnidadService
+{
     List<UnidadDto> findAll();
     Optional<UnidadDto> findById(Integer id);
     List<UnidadDto> findByCategoria(String categoria);
@@ -15,9 +15,4 @@ public interface UnidadService {
     UnidadDto save(UnidadDto unidadDto);
     UnidadDto update(Integer id, UnidadDto unidadDto);
     void deleteById(Integer id);
-
-
-
-
-
 }
