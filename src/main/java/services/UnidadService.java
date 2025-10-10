@@ -1,16 +1,18 @@
 package services;
 
-import dtos.UnidadDto;
+import entities.Unidad;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface UnidadService
 {
-    List<UnidadDto> findAll();
-    Optional<UnidadDto> findById(Integer id);
-    List<UnidadDto> findByCategoria(String categoria);
-    List<UnidadDto> findByNivel(String nivel);
-    UnidadDto update(Integer id, UnidadDto unidadDto);
-    void deleteById(Integer id);
+    public List<Unidad> list();
+    public void insert(Unidad unidad);
+    public Unidad listId(int id);
+    Optional<Unidad> findById(Integer id);
+    List<Unidad> findByCategoria(String categoria);
+    List<Unidad> findByNivel(String nivel);
+    public void update(Unidad unidad);
+    public void delete(int id);
 }
