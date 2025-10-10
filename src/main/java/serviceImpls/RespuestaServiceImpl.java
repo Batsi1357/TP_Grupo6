@@ -19,21 +19,21 @@ public class RespuestaServiceImpl implements RespuestaService
 
     @Override
     public void insert(Respuesta respuesta) {
-
+        respuestaRepository.save(respuesta);
     }
 
     @Override
     public Respuesta listId(int id) {
-        return null;
+        return respuestaRepository.findById(id).orElse(null);
     }
 
     @Override
     public void delete(int id) {
-
+        respuestaRepository.deleteById(id);
     }
 
     @Override
     public void update(Respuesta respuesta) {
-
+        respuestaRepository.save(respuesta);
     }
 }

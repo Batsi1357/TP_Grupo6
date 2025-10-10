@@ -1,21 +1,27 @@
 package serviceImpls;
 
 import entities.Evaluacion;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import repositories.EvaluacionRepository;
+import repositories.RolRepository;
 import services.EvaluacionService;
 
 import java.time.LocalDate;
 import java.util.List;
-
+@Service
 public class EvaluacionServiceImpl implements EvaluacionService
 {
+    @Autowired
+    private EvaluacionRepository evaluacionRepository;
     @Override
     public List<Evaluacion> list() {
-        return List.of();
+        return evaluacionRepository.findAll();
     }
 
     @Override
     public void insert(Evaluacion evaluacion) {
-
+        evaluacionRepository.save(evaluacion);
     }
 
     @Override
@@ -25,12 +31,12 @@ public class EvaluacionServiceImpl implements EvaluacionService
 
     @Override
     public Evaluacion listId(int id) {
-        return null;
+        return evaluacionRepository.findById(id).orElse(null);
     }
 
     @Override
     public void delete(int id) {
-
+        evaluacionRepository.deleteById(id);
     }
 
     @Override

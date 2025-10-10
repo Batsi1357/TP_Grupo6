@@ -9,7 +9,7 @@ public interface OrdenSubscripcionService
 {
     public List<OrdenSubscripcion> list();
     public void insert(OrdenSubscripcion  ordenSubscripcion);
-    public OrdenSubscripcion  buscar(int id);
+    public OrdenSubscripcion listId(int id);
     public void delete(int id);
     public void update(OrdenSubscripcion  ordenSubscripcion);
     List<OrdenSubscripcion> listarPorRangoDeFechas(LocalDate FechaInicio, LocalDate FechaFin);

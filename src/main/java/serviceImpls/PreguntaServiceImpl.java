@@ -1,34 +1,40 @@
 package serviceImpls;
 
 import entities.Pregunta;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import repositories.PreguntaRepository;
+import repositories.RolRepository;
 import services.PreguntaService;
 
 import java.util.List;
-
+@Service
 public class PreguntaServiceImpl implements PreguntaService
 {
+    @Autowired
+    private PreguntaRepository preguntaRepository;
     @Override
     public List<Pregunta> list() {
-        return List.of();
+        return preguntaRepository.findAll();
     }
 
     @Override
     public void insert(Pregunta pregunta) {
-
+        preguntaRepository.save(pregunta);
     }
 
     @Override
     public Pregunta listId(int id) {
-        return null;
+        return preguntaRepository.findById(id).orElse(null);
     }
 
     @Override
     public void delete(int id) {
-
+        preguntaRepository.deleteById(id);
     }
 
     @Override
     public void update(Pregunta pregunta) {
-
+        preguntaRepository.save(pregunta);
     }
 }

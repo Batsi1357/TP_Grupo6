@@ -23,22 +23,23 @@ public class OrdenSubscripcionServiceImpl implements OrdenSubscripcionService
 
     @Override
     public void insert(OrdenSubscripcion ordenSubscripcion) {
-
+        ordenSubscripcionRepository.save(ordenSubscripcion);
     }
 
     @Override
-    public OrdenSubscripcion buscar(int id) {
-        return null;
+    public OrdenSubscripcion listId(int id) {
+        return ordenSubscripcionRepository.findById(id).orElse(null);
     }
+
 
     @Override
     public void delete(int id) {
-
+        ordenSubscripcionRepository.deleteById(id);
     }
 
     @Override
     public void update(OrdenSubscripcion ordenSubscripcion) {
-
+        ordenSubscripcionRepository.save(ordenSubscripcion);
     }
 
     @Override

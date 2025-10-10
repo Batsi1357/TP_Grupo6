@@ -1,13 +1,20 @@
 package serviceImpls;
 
 import dtos.UnidadDto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import repositories.UnidadRepository;
+import repositories.UsuarioRepository;
 import services.UnidadService;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class UnidadServiceImpl implements UnidadService
 {
+    @Autowired
+    private UnidadRepository unidadRepository;
+
     @Override
     public List<UnidadDto> findAll() {
         return List.of();
